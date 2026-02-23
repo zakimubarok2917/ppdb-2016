@@ -1,11 +1,73 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>My Custom Link</title>
-<meta http-equiv="refresh" content="0; url=https://script.google.com/macros/s/AKfycbwbPASedBxcdtR4MprFqw8F4rFK8cdh-jaLJRU_2z2OaH7EgWGHToxKwpKrqkTRmvTQ/exec">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Google App</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Prevents double scrollbars */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Loading Spinner */
+        .loader-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: -1; /* Sits behind the iframe once it loads */
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background-color: transparent;
+        }
+    </style>
 </head>
 <body>
-<p>If you are not redirected, please click <a href="https://script.google.com/macros/s/AKfycbwbPASedBxcdtR4MprFqw8F4rFK8cdh-jaLJRU_2z2OaH7EgWGHToxKwpKrqkTRmvTQ/exec">here</a>.</p>
+
+    <div class="container">
+        <div class="loader-container">
+            <div class="spinner"></div>
+            <p>Loading application...</p>
+        </div>
+
+        <iframe 
+            src="https://script.google.com/a/macros/guru.smk.belajar.id/s/AKfycbzIvJHrCNPpd1PDaKZnF9dkISv5kuc3Qn5O-lyS-cUwWR0kRORnUjvqeyvGJOYwKE8b/exec" 
+            allow="geolocation; microphone; camera">
+        </iframe>
+    </div>
+
 </body>
 </html>
